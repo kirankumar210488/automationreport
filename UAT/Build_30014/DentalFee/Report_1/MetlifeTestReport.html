@@ -1,0 +1,2625 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			ExtentReports Library 2.41.1 | http://relevantcodes.com/extentreports-for-selenium/ | https://github.com/anshooarora/
+			Copyright (c) 2015, Anshoo Arora (Relevant Codes) | Copyrights licensed under the New BSD License | http://opensource.org/licenses/BSD-3-Clause
+			Documentation: http://extentreports.relevantcodes.com 
+		-->
+
+		<meta charset='UTF-8' /> 
+		<meta name='description' content='ExtentReports (by Anshoo Arora) is a reporting library for automation testing for .NET and Java. It creates detailed and beautiful HTML reports for modern browsers. ExtentReports shows test and step summary along with dashboards, system and environment details for quick analysis of your tests.' />
+		<meta name='robots' content='noodp, noydir' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<meta name='extentx' id='extentx' content='' />
+		
+		<title>
+				MetLife Automation Report
+		</title>
+		
+		
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.css' type='text/css' rel='stylesheet' />
+		
+		<style>
+				
+            
+
+      
+        
+		</style>
+	</head>
+	
+	
+	<body class='extent default standard hide-overflow'>
+		<!-- nav -->
+		<nav>
+			<div class='logo-container blue darken-2'>
+				<a class='logo-content' href='http://extentreports.relevantcodes.com'>
+					<span>ExtentReports</span>
+				</a>
+				<a href='#' data-activates='slide-out' class='button-collapse hide-on-large-only'><i class='mdi-navigation-apps'></i></a>
+			</div>
+			<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+				<li class='analysis waves-effect active'><a href='#!' class='test-view' onclick="_updateCurrentStage(0)"><i class='mdi-action-dashboard'></i>Test Details</a></li>
+				<li class='analysis waves-effect'>
+					<a href='#!' onclick="_updateCurrentStage(-1)" class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a>
+				</li>
+			</ul>
+			<span class='report-name'>Regression Test Report For --</span> <span class='report-headline'>Galaxy S9 - Sprint-9</span>
+			<ul class='right hide-on-med-and-down nav-right'>
+				<li class='theme-selector' alt='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");' title='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");'>
+					<i class='mdi-hardware-desktop-windows'></i>
+				</li>
+				<li>
+					<span class='suite-started-time'>2020-11-05 14:35:03</span>
+				</li>
+				<li>
+					<span>v2.41.1</span>
+				</li>
+			</ul>
+		</nav>
+		<!-- /nav -->
+		
+		<!-- container -->
+		<div class='container'>
+			
+			<!-- dashboard -->
+			<div id='dashboard-view' class='row'>
+				<div class='time-totals'>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-tests'> 
+							<span class='panel-name'>Total Tests</span> 
+							<span class='total-tests'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-steps'> 
+							<span class='panel-name'>Total Steps</span> 
+							<span class='total-steps'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-current'> 
+							<span class='panel-name'>Total Time Taken (Current Run)</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 50m 19s+430ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-overall'> 
+							<span class='panel-name'>Total Time Taken (Overall)</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 50m 19s+430ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-start-time'>
+						<div class='card accent green-accent'> 
+							<span class='panel-name'>Start</span> 
+							<span class='panel-lead suite-started-time'>2020-11-05 13:44:44</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-end-time'>
+						<div class='card accent pink-accent'> 
+							<span class='panel-name'>End</span> 
+							<span class='panel-lead suite-ended-time'>2020-11-05 14:35:03</span> 
+						</div> 
+					</div>
+				</div>
+				<div class='charts'>
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Tests View</span>
+							</div> 
+							<div class='panel-setting modal-trigger test-count-setting right'>
+								<a href='#test-count-setting'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='test-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-pass-count weight-normal'></span> test(s) passed</span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-fail-count weight-normal'></span> test(s) failed, <span class='t-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div> 
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Steps View</span>
+							</div> 
+							<div class='panel-setting modal-trigger step-status-filter right'>
+								<a href='#step-status-filter'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='step-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-pass-count weight-normal'></span> step(s) passed </span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-fail-count weight-normal'></span> step(s) failed, <span class='s-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div>
+					<div class='col s12 m12 l4 fh'> 
+						<div class='card-panel'> 
+							<span class='panel-name'>Pass Percentage</span> 
+							<span class='pass-percentage panel-lead'></span> 
+							<div class='progress light-blue lighten-3'> 
+								<div class='determinate light-blue'></div> 
+							</div> 
+						</div> 
+					</div>
+				</div>
+				<div class='system-view'>
+					<div class='col l4 m12 s12'>
+						<div class='card-panel'>
+							<span class='label info outline right'>Environment</span>
+							<table>
+								<thead>
+									<tr>
+										<th>Param</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td>User Name</td>
+											<td>jeeva_p</td>
+										</tr>
+										<tr>
+											<td>OS</td>
+											<td>Mac OS X</td>
+										</tr>
+										<tr>
+											<td>Java Version</td>
+											<td>1.8.0_261</td>
+										</tr>
+										<tr>
+											<td>Host Name</td>
+											<td>CHMB121252</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /dashboard -->
+			
+			<!-- tests -->
+			<div id='test-view' class='row _addedTable'>
+				<div class='col _addedCell1'>
+					<div class='contents'>
+						<div class='card-panel heading'>
+							<h5>Tests</h5>
+						</div>
+						<div class='card-panel filters'>
+							<div>
+								<a class='dropdown-button btn-floating btn-small waves-effect waves-light grey tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+									<i class='mdi-action-reorder'></i>
+								</a>
+								<ul id='tests-toggle' class='dropdown-content'>
+									<li class='pass'><a href='#!'>Pass</a></li>
+									<li class='fail'><a href='#!'>Fail</a></li>
+									<li class='skip'><a href='#!'>Skip</a></li>
+									<li class='divider'></li>
+									<li class='clear'><a href='#!'>Clear Filters</a></li>
+								</ul>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+									<i class='mdi-navigation-close'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='enableDashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+									<i class='mdi-action-track-changes'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light blue enabled' id='refreshCharts' alt='Refresh Charts on Filters' title='Refresh Charts on Filters'>
+									<i class='mdi-navigation-refresh'></i>
+								</a>
+							</div>
+							<div class='search' alt='Search Tests' title='Search Tests'>
+								<div class='input-field left'>
+									<input id='searchTests' type='text' class='validate' placeholder='Search Tests...'>
+								</div>
+								<a href="#" class='btn-floating btn-small waves-effect waves-light grey'>
+									<i class='mdi-action-search'></i>
+								</a>
+							</div>
+						</div>
+						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
+							<div class='wrapper'>
+								<ul id='test-collection' class='test-collection'>
+										<li class='collection-item test displayed active pass ' extentid='ec13d7f8-3f28-448c-826a-70f77e817716'>
+											<div class='test-head'>
+												<span class='test-name'>Test-1: TC DFE34_To verify user taps on the Estimate Costs </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 15:14:19</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 15:15:02</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 43s+305ms</span>
+												</div>
+												<div class='test-desc'>DFE34_To verify user taps on the Estimate Costs</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:00</td>
+																	<td class='step-details'>App launched in : iPhone-XR</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:02</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569502410.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569502410.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:15</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:17</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569517325.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569517325.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:26</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:27</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569527926.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569527926.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:34</td>
+																	<td class='step-details'>Touch ID/Face ID/Finger Print enable Not Now button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:15:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569535726.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569535726.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:18</td>
+																	<td class='step-details'>tap on skip tour</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:20</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569580554.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569580554.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:28</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:30</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569590876.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569590876.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:33</td>
+																	<td class='step-details'>Data match. Expected: dental Actual: DENTAL PPO</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:36</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569596158.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569596158.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:39</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:16:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569601114.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569601114.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:47</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:48</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569728510.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569728510.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:50</td>
+																	<td class='step-details'>Zip code field is displayed</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:52</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569732265.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569732265.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:53</td>
+																	<td class='step-details'>Current location icon is displayed</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:54</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569734595.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569734595.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:56</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:56</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569736953.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569736953.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:57</td>
+																	<td class='step-details'>Zip Code field is not empty</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:18:59</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569739190.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569739190.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:03</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:03</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569743819.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569743819.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:08</td>
+																	<td class='step-details'>Zip Code X button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:09</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569749787.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569749787.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:17</td>
+																	<td class='step-details'>Zip Code Default Value is Displaying</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:18</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569758743.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569758743.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:20</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:21</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569761591.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569761591.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:52</td>
+																	<td class='step-details'>X icon is displaying</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:53</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569793409.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569793409.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:57</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:19:58</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569798797.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569798797.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:02</td>
+																	<td class='step-details'>Zip Code X button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:04</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569804239.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569804239.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:11</td>
+																	<td class='step-details'>Zip Code Default Value is Displaying</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569813168.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569813168.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:17</td>
+																	<td class='step-details'>Zip Code Default Value is Displaying</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:18</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569818878.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569818878.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:21</td>
+																	<td class='step-details'>Clicked on search button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:21</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569821941.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569821941.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:26</td>
+																	<td class='step-details'>Blank field zip code error message is displayed</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:20:29</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE34_1604569829457.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE34_1604569829457.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='baf41ecb-9dc2-4f77-82a9-45a261445be7'>
+											<div class='test-head'>
+												<span class='test-name'>Test-2: TC DFE35_To verify user is shown results of approximate dental costs for the entered zip </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 13:50:48</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 13:51:18</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 29s+550ms</span>
+												</div>
+												<div class='test-desc'>DFE35_To verify user is shown results of approximate dental costs for the entered zip</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:50:57</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:51:18</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564478467.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564478467.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:51:39</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:51:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564501920.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564501920.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:24</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564546250.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564546250.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:37</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:39</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564559167.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564559167.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:42</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:44</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564564627.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564564627.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:46</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:47</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564567867.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564567867.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:49</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:51</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564571107.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564571107.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:54</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:56</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564576463.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564576463.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:56</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:52:57</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564577453.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564577453.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:19</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:21</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564661863.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564661863.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:27</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:30</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564670565.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564670565.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:33</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564675170.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564675170.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:39</td>
+																	<td class='step-details'>Able to enter zip code in for estimator fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:54:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564681369.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564681369.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:12</td>
+																	<td class='step-details'>Able to validate the cost list and accordian type</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:15</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564715505.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564715505.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:17</td>
+																	<td class='step-details'>Search results displayed as expandable</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:20</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564720207.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564720207.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:22</td>
+																	<td class='step-details'>First one from the search result is expanded</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:24</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564724255.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564724255.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:29</td>
+																	<td class='step-details'>Search results are listed in Procedure Description alphabetical order</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE35_1604564731501.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE35_1604564731501.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5a47dc1e-c6b1-45c8-bac3-97163fee3729'>
+											<div class='test-head'>
+												<span class='test-name'>Test-3: TC DFE36_To verify user should be display 5 list of search results as per mocks </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 13:55:46</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 13:56:12</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 26s+4ms</span>
+												</div>
+												<div class='test-desc'>DFE36_To verify user should be display 5 list of search results as per mocks</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:55:54</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:56:12</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564772356.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564772356.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:56:33</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:56:36</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564796325.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564796325.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:18</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:20</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564840352.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564840352.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:32</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:34</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564854193.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564854193.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:37</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:38</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564858743.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564858743.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:40</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:42</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564862392.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564862392.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:43</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:45</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564865312.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564865312.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:48</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:50</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564870152.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564870152.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:50</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:57:51</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564871009.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564871009.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:12</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:14</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564954231.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564954231.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:20</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:22</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564962232.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564962232.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:25</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:27</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564967618.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564967618.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:33</td>
+																	<td class='step-details'>Able to enter zip code in for estimator fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564975693.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564975693.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:42</td>
+																	<td class='step-details'>Procedure Code is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:45</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564985675.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564985675.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:47</td>
+																	<td class='step-details'>Network Fee is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564989549.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564989549.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:51</td>
+																	<td class='step-details'>Out of Network Range is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:54</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604564994254.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604564994254.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:59:58</td>
+																	<td class='step-details'>Able to change category dropdown in dental fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:00:01</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604565001364.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604565001364.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:00:06</td>
+																	<td class='step-details'>Able to validate back button navigates to search page</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:00:07</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE36_1604565007733.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE36_1604565007733.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='d0676393-7652-4689-a040-2f957ce4fabb'>
+											<div class='test-head'>
+												<span class='test-name'>Test-4: TC DFE37_To verify search results of approximate dental costs for valid zip code - UI only </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 14:00:22</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 14:01:06</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 43s+407ms</span>
+												</div>
+												<div class='test-desc'>DFE37_To verify search results of approximate dental costs for valid zip code - UI only</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:00:31</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:01:06</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565066391.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565066391.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:01:28</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:01:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565095615.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565095615.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:18</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:20</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565140820.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565140820.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:32</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:34</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565154644.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565154644.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:37</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:39</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565159241.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565159241.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:41</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565163258.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565163258.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:44</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:46</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565166602.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565166602.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:50</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:52</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565172077.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565172077.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:52</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:02:53</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565173143.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565173143.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:14</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:17</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565257117.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565257117.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:22</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565266045.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565266045.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:29</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565271402.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565271402.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:36</td>
+																	<td class='step-details'>Able to enter zip code in for estimator fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:37</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565277687.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565277687.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:40</td>
+																	<td class='step-details'>Able to validate the given zipcode is prefilled in dental fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:04:42</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565282849.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565282849.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:13</td>
+																	<td class='step-details'>Able to validate the cost list and accordian type</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:16</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565316233.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565316233.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:23</td>
+																	<td class='step-details'>Procedure Code is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565326203.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565326203.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:28</td>
+																	<td class='step-details'>Network Fee is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:30</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565330883.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565330883.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:32</td>
+																	<td class='step-details'>Out of Network Range is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565335093.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565335093.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:39</td>
+																	<td class='step-details'>Able to change category dropdown in dental fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:42</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565342401.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565342401.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:44</td>
+																	<td class='step-details'>Able to validate the given zipcode is prefilled in dental fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:05:45</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565345616.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565345616.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:17</td>
+																	<td class='step-details'>Able to validate the cost list and accordian type</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565379285.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565379285.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:26</td>
+																	<td class='step-details'>Procedure Code is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:28</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565388921.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565388921.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:30</td>
+																	<td class='step-details'>Network Fee is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:32</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565392545.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565392545.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:34</td>
+																	<td class='step-details'>Out of Network Range is displayed in dental fee cost</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:36</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565396929.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565396929.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:42</td>
+																	<td class='step-details'>Able to validate back button navigates to search page</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:06:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE37_1604565403870.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE37_1604565403870.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5d6ed81e-1d3b-4ea8-b8bf-2e13f510b972'>
+											<div class='test-head'>
+												<span class='test-name'>Test-5: TC DFE38_To verify user can change the category in the list in Dental Cost Estmator screen </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 14:06:58</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 14:07:22</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 24s+677ms</span>
+												</div>
+												<div class='test-desc'>DFE38_To verify user can change the category in the list in Dental Cost Estmator screen</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:07:06</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:07:22</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565442966.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565442966.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:07:43</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:07:46</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565466727.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565466727.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:29</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565511149.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565511149.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:42</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:44</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565524297.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565524297.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:46</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:48</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565528850.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565528850.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:50</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:52</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565532670.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565532670.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:53</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565535709.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565535709.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:08:59</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:09:00</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565540951.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565540951.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:09:00</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:09:02</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565542105.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565542105.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:23</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:25</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565625093.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565625093.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:31</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:37</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565637886.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565637886.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:40</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:42</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565642361.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565642361.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:44</td>
+																	<td class='step-details'>User entered Zip Code in Dental Fees screen successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:46</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565646481.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565646481.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:49</td>
+																	<td class='step-details'>Clicked on search button in Dental Fees</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:51</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565651260.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565651260.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:53</td>
+																	<td class='step-details'>User able to see Categories Drop Down</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:10:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565655829.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565655829.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:00</td>
+																	<td class='step-details'>Value-Diagnostic (Exams & X-Rays) available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:03</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565663111.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565663111.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:04</td>
+																	<td class='step-details'>Value-Endodontics (Root canal) available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:06</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565666438.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565666438.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:07</td>
+																	<td class='step-details'>Value-Implants available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:09</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565669927.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565669927.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:11</td>
+																	<td class='step-details'>Value-Oral Surgery available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565673251.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565673251.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:14</td>
+																	<td class='step-details'>Value-Other available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:16</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565676949.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565676949.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:18</td>
+																	<td class='step-details'>Value-Periodontics (Scaling & Maintenance) available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565679793.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565679793.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:21</td>
+																	<td class='step-details'>Value-Preventive (Cleanings & Fluoride) available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:23</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565683027.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565683027.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:24</td>
+																	<td class='step-details'>Value-Prosthetic Fix (Bridges) available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:25</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565685883.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565685883.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:27</td>
+																	<td class='step-details'>Value-Restorative (Amalgams/Composite Fillings & Crowns) available in category drop down list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:29</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565689417.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565689417.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:34</td>
+																	<td class='step-details'>Categories dropdown field is pre-filled with first value by default</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:36</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565696051.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565696051.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:38</td>
+																	<td class='step-details'>Result content is displayed for categories field default value</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:11:39</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE38_1604565699449.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE38_1604565699449.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='31d5cb1a-a7b8-446a-a2be-54007643e821'>
+											<div class='test-head'>
+												<span class='test-name'>Test-6: TC DFE39_To verify user view the pop over for Network fee in Dental Cost Estmator screen </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 14:11:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 14:12:18</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 23s+960ms</span>
+												</div>
+												<div class='test-desc'>DFE39_To verify user view the pop over for Network fee in Dental Cost Estmator screen</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:12:02</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:12:18</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565738393.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565738393.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:12:38</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:12:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565761055.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565761055.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:23</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:25</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565805079.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565805079.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:36</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:38</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565818546.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565818546.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:41</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:42</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565822992.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565822992.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:44</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:45</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565825961.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565825961.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:47</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565829108.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565829108.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:52</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:54</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565834069.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565834069.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:54</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:13:54</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565834913.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565834913.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:17</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:18</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565918962.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565918962.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:24</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:27</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565927267.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565927267.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:30</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:32</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565932218.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565932218.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:36</td>
+																	<td class='step-details'>Able to enter zip code in for estimator fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:38</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565938485.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565938485.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:44</td>
+																	<td class='step-details'>Able to tap on network fee question icon and view network popup</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:46</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565946538.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565946538.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:51</td>
+																	<td class='step-details'>Able to view on network fee text in popup</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:15:53</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE39_1604565953915.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE39_1604565953915.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='4c01f0b9-331c-4cda-9531-433e32b1138b'>
+											<div class='test-head'>
+												<span class='test-name'>Test-7: TC DFE40_To verify user can view the pop over for 'Out of Network charge' in Dental Cost Estimator screen. </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 14:16:08</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 14:16:40</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+130ms</span>
+												</div>
+												<div class='test-desc'>DFE40_To verify user can view the pop over for 'Out of Network charge' in Dental Cost Estimator screen.</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:16:17</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:16:40</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566000556.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566000556.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:17:00</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:17:03</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566023911.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566023911.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:17:46</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:17:48</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566068841.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566068841.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:00</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:02</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566082402.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566082402.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:05</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:07</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566087352.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566087352.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:09</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:11</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566091262.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566091262.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:12</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:14</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566094225.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566094225.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:17</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566099076.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566099076.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:19</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:18:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566099975.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566099975.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:19:41</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:19:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566183264.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566183264.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:19:48</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:19:52</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566192749.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566192749.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:19:56</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:19:57</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566197947.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566197947.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:03</td>
+																	<td class='step-details'>Able to enter zip code in for estimator fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:04</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566204586.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566204586.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:09</td>
+																	<td class='step-details'>Able to tap on out network fee question icon and view network popup</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:12</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566212800.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566212800.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:17</td>
+																	<td class='step-details'>Able to view on out network fee text in popup</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE40_1604566219983.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE40_1604566219983.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='ea1c13ba-6cbf-4a90-a920-c504a011caf9'>
+											<div class='test-head'>
+												<span class='test-name'>Test-8: TC DFE41_To verify user can view an information text below at the bottom of the page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 14:20:34</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 14:20:59</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 25s+183ms</span>
+												</div>
+												<div class='test-desc'>DFE41_To verify user can view an information text below at the bottom of the page</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:42</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:20:59</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566259482.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566259482.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:21:20</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:21:23</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566283282.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566283282.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:06</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:09</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566329046.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566329046.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:21</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:23</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566343773.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566343773.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:26</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:29</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566349207.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566349207.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:31</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:32</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566352533.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566352533.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:34</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566355321.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566355321.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:38</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:40</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566360077.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566360077.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:40</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:22:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566361366.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566361366.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:03</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:05</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566445472.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566445472.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:10</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:14</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566454032.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566454032.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:17</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566459584.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566459584.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:24</td>
+																	<td class='step-details'>Able to enter zip code in for estimator fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566466191.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566466191.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:28</td>
+																	<td class='step-details'>Able to validate disclaimer text in dental fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566471358.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566471358.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:40</td>
+																	<td class='step-details'>Able to expand all accordions</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566483514.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566483514.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:45</td>
+																	<td class='step-details'>Able to validate disclaimer text in dental fee screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:24:48</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE41_1604566488380.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE41_1604566488380.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='2939bd19-b204-43ad-80f7-11b5fd0af5f3'>
+											<div class='test-head'>
+												<span class='test-name'>Test-9: TC DFE17 Verify Search Result View limitations </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 14:25:03</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 14:25:33</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 30s+480ms</span>
+												</div>
+												<div class='test-desc'>DFE17 Verify Search Result View limitations</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:25:11</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:25:33</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566533510.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566533510.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:25:54</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:25:57</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566557876.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566557876.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:26:39</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:26:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566601920.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566601920.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:26:53</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:26:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566615855.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566615855.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:26:59</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:00</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566620882.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566620882.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:02</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:04</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566624686.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566624686.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:06</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:07</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566627924.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566627924.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:11</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:12</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566632675.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566632675.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:12</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:27:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566633616.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566633616.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:28:36</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:28:38</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566718237.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566718237.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:28:43</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:28:45</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566725205.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566725205.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:28:48</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:28:50</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566730845.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566730845.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:02</td>
+																	<td class='step-details'>Clicked on Select Procedure Category field</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:05</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566745191.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566745191.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:08</td>
+																	<td class='step-details'>Clicked on first procedure from the categories list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:11</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566751652.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566751652.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:14</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:16</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566756152.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566756152.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:17</td>
+																	<td class='step-details'>Cleared the value in cost estimator zip code field</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566759408.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566759408.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:24</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566766704.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566766704.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:30</td>
+																	<td class='step-details'>Clicked on search button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566771777.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566771777.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:42</td>
+																	<td class='step-details'>Not showing More than desired count</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:29:45</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE17_1604566785152.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE17_1604566785152.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='067782ea-1010-497c-b8c0-d446cffa69a6'>
+											<div class='test-head'>
+												<span class='test-name'>Test-10: TC DFE19_To verify user can view in-network cost estimate for selected procedure by default </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-05 14:29:59</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-05 14:30:34</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 34s+924ms</span>
+												</div>
+												<div class='test-desc'>DFE19_To verify user can view in-network cost estimate for selected procedure by default</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:30:08</td>
+																	<td class='step-details'>App launched in : Galaxy S9</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:30:34</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566834912.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566834912.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:30:54</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:30:56</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566856525.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566856525.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:31:39</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:31:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566901387.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566901387.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:31:53</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:31:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566915507.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566915507.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:31:58</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:00</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566920004.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566920004.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:02</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:04</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566924003.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566924003.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:05</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:07</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566927816.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566927816.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:11</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:12</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566932845.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566932845.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:12</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:32:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604566933831.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604566933831.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:33:34</td>
+																	<td class='step-details'>User clicked on Dental PPO from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:33:36</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567016703.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567016703.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:33:41</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:33:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567023299.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567023299.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:33:46</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:33:48</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567028426.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567028426.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:00</td>
+																	<td class='step-details'>Clicked on Select Procedure Category field</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:02</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567042064.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567042064.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:04</td>
+																	<td class='step-details'>Clicked on first procedure from the categories list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:06</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567046884.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567046884.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:09</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:11</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567051393.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567051393.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:12</td>
+																	<td class='step-details'>Cleared the value in cost estimator zip code field</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:15</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567055004.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567055004.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:20</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:22</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567062257.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567062257.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:25</td>
+																	<td class='step-details'>Clicked on search button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567066717.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567066717.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:50</td>
+																	<td class='step-details'>Able to select any search results</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:53</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567093129.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567093129.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:57</td>
+																	<td class='step-details'>In-Network & Out-of-Network tabs are displayed</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:34:59</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567099863.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567099863.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:35:01</td>
+																	<td class='step-details'>In-Network tab is displayed by default</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>14:35:03</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DFE19_1604567103977.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DFE19_1604567103977.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id='test-details-wrapper' class='col _addedCell2'>
+					<div class='contents'>
+						<div class='card-panel details-view'>
+							<h5 class='details-name'></h5>
+							<div class='step-filters right'>
+								<span class='btn-floating btn-small waves-effect waves-light blue' status='info' alt='info' title='info'><i class='mdi-action-info-outline'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light green' status='pass' alt='pass' title='pass'><i class='mdi-action-check-circle'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red' status='fail' alt='fail' title='fail'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red darken-4' status='fatal' alt='fatal' title='fatal'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red lighten-2' status='error' alt='error' title='error'><i class='mdi-alert-error'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light orange' alt='warning' status='warning' title='warning'><i class='mdi-alert-warning'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light cyan' status='skip' alt='skip' title='skip'><i class='mdi-content-redo'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light grey darken-2' status='clear-step-filter' alt='Clear filters' title='Clear filters'><i class='mdi-content-clear'></i></span>
+							</div>
+							<div class='details-container'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /tests -->
+			
+			<!-- categories -->
+			<!-- /categories -->
+			
+			<!-- exceptions -->
+			<!-- /exceptions -->
+			
+			<!-- testrunner logs -->
+			<!-- /testrunner logs -->
+			
+		</div>
+		<!-- /container -->
+		
+		<!-- test dashboard counts setting -->
+		<div id='test-count-setting' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Configure Tests Count Setting</h5> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodes' class='with-gap'> 
+				<label for='parentWithoutNodes'>Parent Tests Only (Does not include child nodes in counts)</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodesAndNodes' class='with-gap'> 
+				<label for='parentWithoutNodesAndNodes'>Parent Tests Without Child Tests + Child Tests</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='childNodes' class='with-gap'> 
+				<label for='childNodes'>Child Tests Only</label> 
+			</div> 
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /test dashboard counts setting -->
+		
+		<!-- filter for step status -->
+		<div id='step-status-filter' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Select status</h5> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-pass'> 
+				<label for='step-dashboard-filter-pass'>Pass</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fail'> 
+				<label for='step-dashboard-filter-fail'>Fail</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fatal'> 
+				<label for='step-dashboard-filter-fatal'>Fatal</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-error'> 
+				<label for='step-dashboard-filter-error'>Error</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-warning'> 
+				<label for='step-dashboard-filter-warning'>Warning</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-skip'> 
+				<label for='step-dashboard-filter-skip'>Skipped</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-info'> 
+				<label for='step-dashboard-filter-info'>Info</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-unknown'> 
+				<label for='step-dashboard-filter-unknown'>Unknown</label> 
+			</div>
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /filter for step status -->
+		
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.js' type='text/javascript'></script>
+
+		<script>$(document).ready(function() { $('.logo span').html('ExtentReports'); });</script>
+		<script>
+				
+            
+        $(document).ready(function() {
+
+        });
+      
+        
+		</script>
+	</body>
+</html>
