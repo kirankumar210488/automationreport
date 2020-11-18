@@ -1,0 +1,2118 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			ExtentReports Library 2.41.1 | http://relevantcodes.com/extentreports-for-selenium/ | https://github.com/anshooarora/
+			Copyright (c) 2015, Anshoo Arora (Relevant Codes) | Copyrights licensed under the New BSD License | http://opensource.org/licenses/BSD-3-Clause
+			Documentation: http://extentreports.relevantcodes.com 
+		-->
+
+		<meta charset='UTF-8' /> 
+		<meta name='description' content='ExtentReports (by Anshoo Arora) is a reporting library for automation testing for .NET and Java. It creates detailed and beautiful HTML reports for modern browsers. ExtentReports shows test and step summary along with dashboards, system and environment details for quick analysis of your tests.' />
+		<meta name='robots' content='noodp, noydir' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<meta name='extentx' id='extentx' content='' />
+		
+		<title>
+				MetLife Automation Report
+		</title>
+		
+		
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.css' type='text/css' rel='stylesheet' />
+		
+		<style>
+				
+            
+
+      
+        
+		</style>
+	</head>
+	
+	
+	<body class='extent default standard hide-overflow'>
+		<!-- nav -->
+		<nav>
+			<div class='logo-container blue darken-2'>
+				<a class='logo-content' href='http://extentreports.relevantcodes.com'>
+					<span>ExtentReports</span>
+				</a>
+				<a href='#' data-activates='slide-out' class='button-collapse hide-on-large-only'><i class='mdi-navigation-apps'></i></a>
+			</div>
+			<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+				<li class='analysis waves-effect active'><a href='#!' class='test-view' onclick="_updateCurrentStage(0)"><i class='mdi-action-dashboard'></i>Test Details</a></li>
+				<li class='analysis waves-effect'>
+					<a href='#!' onclick="_updateCurrentStage(-1)" class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a>
+				</li>
+			</ul>
+			<span class='report-name'>Smoke Test Report For --</span> <span class='report-headline'>iPhone-11 - All Sprint</span>
+			<ul class='right hide-on-med-and-down nav-right'>
+				<li class='theme-selector' alt='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");' title='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");'>
+					<i class='mdi-hardware-desktop-windows'></i>
+				</li>
+				<li>
+					<span class='suite-started-time'>2020-11-17 19:29:04</span>
+				</li>
+				<li>
+					<span>v2.41.1</span>
+				</li>
+			</ul>
+		</nav>
+		<!-- /nav -->
+		
+		<!-- container -->
+		<div class='container'>
+			
+			<!-- dashboard -->
+			<div id='dashboard-view' class='row'>
+				<div class='time-totals'>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-tests'> 
+							<span class='panel-name'>Total Tests</span> 
+							<span class='total-tests'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-steps'> 
+							<span class='panel-name'>Total Steps</span> 
+							<span class='total-steps'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-current'> 
+							<span class='panel-name'>Total Time Taken (Current Run)</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 39m 12s+156ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-overall'> 
+							<span class='panel-name'>Total Time Taken (Overall)</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 39m 12s+156ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-start-time'>
+						<div class='card accent green-accent'> 
+							<span class='panel-name'>Start</span> 
+							<span class='panel-lead suite-started-time'>2020-11-17 18:49:51</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-end-time'>
+						<div class='card accent pink-accent'> 
+							<span class='panel-name'>End</span> 
+							<span class='panel-lead suite-ended-time'>2020-11-17 19:29:04</span> 
+						</div> 
+					</div>
+				</div>
+				<div class='charts'>
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Tests View</span>
+							</div> 
+							<div class='panel-setting modal-trigger test-count-setting right'>
+								<a href='#test-count-setting'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='test-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-pass-count weight-normal'></span> test(s) passed</span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-fail-count weight-normal'></span> test(s) failed, <span class='t-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div> 
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Steps View</span>
+							</div> 
+							<div class='panel-setting modal-trigger step-status-filter right'>
+								<a href='#step-status-filter'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='step-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-pass-count weight-normal'></span> step(s) passed </span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-fail-count weight-normal'></span> step(s) failed, <span class='s-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div>
+					<div class='col s12 m12 l4 fh'> 
+						<div class='card-panel'> 
+							<span class='panel-name'>Pass Percentage</span> 
+							<span class='pass-percentage panel-lead'></span> 
+							<div class='progress light-blue lighten-3'> 
+								<div class='determinate light-blue'></div> 
+							</div> 
+						</div> 
+					</div>
+				</div>
+				<div class='system-view'>
+					<div class='col l4 m12 s12'>
+						<div class='card-panel'>
+							<span class='label info outline right'>Environment</span>
+							<table>
+								<thead>
+									<tr>
+										<th>Param</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td>User Name</td>
+											<td>kirankumar_v</td>
+										</tr>
+										<tr>
+											<td>OS</td>
+											<td>Mac OS X</td>
+										</tr>
+										<tr>
+											<td>Java Version</td>
+											<td>1.8.0_242</td>
+										</tr>
+										<tr>
+											<td>Host Name</td>
+											<td>CHMB105409.local</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /dashboard -->
+			
+			<!-- tests -->
+			<div id='test-view' class='row _addedTable'>
+				<div class='col _addedCell1'>
+					<div class='contents'>
+						<div class='card-panel heading'>
+							<h5>Tests</h5>
+						</div>
+						<div class='card-panel filters'>
+							<div>
+								<a class='dropdown-button btn-floating btn-small waves-effect waves-light grey tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+									<i class='mdi-action-reorder'></i>
+								</a>
+								<ul id='tests-toggle' class='dropdown-content'>
+									<li class='pass'><a href='#!'>Pass</a></li>
+									<li class='fail'><a href='#!'>Fail</a></li>
+									<li class='skip'><a href='#!'>Skip</a></li>
+									<li class='divider'></li>
+									<li class='clear'><a href='#!'>Clear Filters</a></li>
+								</ul>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+									<i class='mdi-navigation-close'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='enableDashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+									<i class='mdi-action-track-changes'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light blue enabled' id='refreshCharts' alt='Refresh Charts on Filters' title='Refresh Charts on Filters'>
+									<i class='mdi-navigation-refresh'></i>
+								</a>
+							</div>
+							<div class='search' alt='Search Tests' title='Search Tests'>
+								<div class='input-field left'>
+									<input id='searchTests' type='text' class='validate' placeholder='Search Tests...'>
+								</div>
+								<a href="#" class='btn-floating btn-small waves-effect waves-light grey'>
+									<i class='mdi-action-search'></i>
+								</a>
+							</div>
+						</div>
+						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
+							<div class='wrapper'>
+								<ul id='test-collection' class='test-collection'>
+										<li class='collection-item test displayed active pass ' extentid='86ced9fb-9633-4686-8370-6565cafc309d'>
+											<div class='test-head'>
+												<span class='test-name'>Test-1: TC DPP 38 To verify user able to see plan summary table in out network tab </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 18:49:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 18:50:34</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 40s+298ms</span>
+												</div>
+												<div class='test-desc'>DPP 38 To verify user able to see plan summary table in out network tab</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:50:32</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:50:34</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619234620.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619234620.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:50:47</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:50:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619249404.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619249404.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:50:57</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:50:59</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619259257.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619259257.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:06</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:07</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619267969.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619267969.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:09</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:11</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619271297.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619271297.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:12</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619273945.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619273945.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:14</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:16</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619276227.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619276227.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:17</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619279472.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619279472.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:19</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:51:20</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619280440.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619280440.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:52:43</td>
+																	<td class='step-details'>Clicked on Estimate Costs Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:53:53</td>
+																	<td class='step-details'>User on Dental Cost/Fee Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:53:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619435331.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619435331.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:06</td>
+																	<td class='step-details'>Clicked on Select Procedure Category field</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:14</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619454900.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619454900.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:18</td>
+																	<td class='step-details'>User entered procedure name in Procedure Category successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:20</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619460510.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619460510.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:22</td>
+																	<td class='step-details'>Able to search procedure category</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:24</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619464805.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619464805.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:26</td>
+																	<td class='step-details'>User entered Zip Code successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:28</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619468380.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619468380.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:30</td>
+																	<td class='step-details'>Clicked on search button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:38</td>
+																	<td class='step-details'>Able to select any search results</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:40</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619480636.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619480636.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:42</td>
+																	<td class='step-details'>User is in Innetwork out network screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:44</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619484913.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619484913.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:46</td>
+																	<td class='step-details'>Able to tap on out of network tab in cost estimator</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619489001.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619489001.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:49</td>
+																	<td class='step-details'>Able to validate deductibles in out network tab</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:54:51</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///null_1605619491472.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///null_1605619491472.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='264644d3-ed2b-44e1-87d5-1728854520f4'>
+											<div class='test-head'>
+												<span class='test-name'>Test-2: TC DI24_To verify success message should dispaly upon saving the ID card in both App & Gallery </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 18:55:28</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 18:56:01</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+923ms</span>
+												</div>
+												<div class='test-desc'>DI24_To verify success message should dispaly upon saving the ID card in both App & Gallery</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:55:59</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:56:01</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///DI24_1605619561153.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///DI24_1605619561153.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>18:56:33</td>
+																	<td class='step-details'>unable to remove id cards already saved</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>18:56:34</td>
+																	<td class='step-details'><a href='.\Failed_Screenshots\/DI24_1605619594866.jpg' data-featherlight='image'><img class='report-img' src='.\Failed_Screenshots\/DI24_1605619594866.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='af9b6601-fa9e-46e2-a008-7f86a9370da8'>
+											<div class='test-head'>
+												<span class='test-name'>Test-3: TC AIC_25_To verify application should display a success message upon saving front and back of the ID card in Gallery </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 18:57:10</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 18:57:49</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 38s+762ms</span>
+												</div>
+												<div class='test-desc'>AIC_25_To verify application should display a success message upon saving front and back of the ID card in Gallery</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:57:41</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:57:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619669228.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619669228.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:58:01</td>
+																	<td class='step-details'>Removed id cards that are already saved</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:58:05</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619685094.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619685094.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:58:11</td>
+																	<td class='step-details'>Changed to  Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:58:14</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619694111.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619694111.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>18:58:14</td>
+																	<td class='step-details'>Invalid Credential need to update the Test data sheet</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>18:58:16</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///AIC_25_1605619696008.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///AIC_25_1605619696008.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>18:58:16</td>
+																	<td class='step-details'>Expected : true Actual : false</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>18:58:17</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///AIC_25_1605619697637.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///AIC_25_1605619697637.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='a30e7ca8-8ee6-498b-af70-d71c5ac5d8eb'>
+											<div class='test-head'>
+												<span class='test-name'>Test-4: TC DHMO_42_To verify user should be able review the newly selected dental office details before submitting the Change dental office request </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 18:58:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 18:59:26</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+470ms</span>
+												</div>
+												<div class='test-desc'>DHMO_42_To verify user should be able review the newly selected dental office details before submitting the Change dental office request</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:59:24</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:59:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619766792.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619766792.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:59:37</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:59:39</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619779478.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619779478.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:59:47</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>18:59:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619789501.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619789501.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:01:36</td>
+																	<td class='step-details'>Unable to click My Dental Office link in Dental DHMO</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:01:38</td>
+																	<td class='step-details'><a href='.\Failed_Screenshots\/AIC_25_1605619898413.jpg' data-featherlight='image'><img class='report-img' src='.\Failed_Screenshots\/AIC_25_1605619898413.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='c2002a96-e0ae-44fc-81f8-b02d395b5aad'>
+											<div class='test-head'>
+												<span class='test-name'>Test-5: TC DIS_39_To verify User can view the added payment information for Manage Direct Deposit in Payment Info screen </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:02:15</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:02:51</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 36s+436ms</span>
+												</div>
+												<div class='test-desc'>DIS_39_To verify User can view the added payment information for Manage Direct Deposit in Payment Info screen</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:02:46</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:02:51</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619971539.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619971539.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:02</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:05</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619985207.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619985207.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:13</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:15</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605619995070.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605619995070.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:21</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:23</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620003551.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620003551.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:25</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620006522.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620006522.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:27</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:29</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620009356.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620009356.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:30</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:32</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620012738.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620012738.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:34</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:35</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:03:36</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620016692.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620016692.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:04:25</td>
+																	<td class='step-details'>Selected Disability from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:04:27</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620067175.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620067175.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:04:29</td>
+																	<td class='step-details'>User clicked on Absence and Claims Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:04:30</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620070651.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620070651.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:04:34</td>
+																	<td class='step-details'>User clicked on first claim from the claims list</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:04:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620075958.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620075958.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:05:06</td>
+																	<td class='step-details'>User has successfully selected a claim for adding new account</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:05:08</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620108110.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620108110.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:05:10</td>
+																	<td class='step-details'>User able to view payment details of the claim</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:05:11</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620111093.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620111093.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:11</td>
+																	<td class='step-details'>Manage Direct Deposit Button not displayed</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:12</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///AIC_25_1605620112986.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///AIC_25_1605620112986.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:13</td>
+																	<td class='step-details'>Click on Manage Direct Deposit button failed</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:14</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///AIC_25_1605620114756.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///AIC_25_1605620114756.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:15</td>
+																	<td class='step-details'>User unable to see Bank Name</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:16</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///AIC_25_1605620116195.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///AIC_25_1605620116195.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:16</td>
+																	<td class='step-details'>User unable to see Bank Address</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:17</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///AIC_25_1605620117551.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///AIC_25_1605620117551.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:17</td>
+																	<td class='step-details'>User unable to see Account Number</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:05:18</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///AIC_25_1605620118934.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///AIC_25_1605620118934.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='426f7434-846f-46c0-9de8-78adc26e4316'>
+											<div class='test-head'>
+												<span class='test-name'>Test-6: TC PC_49_To verify user can view coverage details for Combo insurance policy - Boat policy - Single Vehicle </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:05:55</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:06:28</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 33s+31ms</span>
+												</div>
+												<div class='test-desc'>PC_49_To verify user can view coverage details for Combo insurance policy - Boat policy - Single Vehicle</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:06:26</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:06:28</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620188834.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620188834.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:06:39</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:06:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620201167.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620201167.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:06:49</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:06:51</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620211060.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620211060.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:06:58</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:00</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620220038.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620220038.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:01</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:03</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620223746.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620223746.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:04</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:06</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620226457.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620226457.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:07</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:08</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620228887.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620228887.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:10</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:11</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620231908.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620231908.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:11</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:12</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620232914.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620232914.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:07:59</td>
+																	<td class='step-details'>Tap on Coverage Link</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:00</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620280792.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620280792.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:03</td>
+																	<td class='step-details'>Tap on Boat Product</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:04</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620284700.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620284700.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:05</td>
+																	<td class='step-details'>User in Coverage overview tab</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:07</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620287138.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620287138.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:11</td>
+																	<td class='step-details'>Tap on Coverage Details</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620293269.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620293269.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:16</td>
+																	<td class='step-details'>Able to see the details</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620299036.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620299036.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:20</td>
+																	<td class='step-details'>Coverage Section present</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:08:22</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///AIC_25_1605620302279.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///AIC_25_1605620302279.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='854143a2-3380-44fe-aae7-3a79dd20f6bf'>
+											<div class='test-head'>
+												<span class='test-name'>Test-7: TC PP_54_To verify message shown when user navigates back from personal info screen without updating the changes </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:08:59</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:09:31</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+795ms</span>
+												</div>
+												<div class='test-desc'>PP_54_To verify message shown when user navigates back from personal info screen without updating the changes</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:09:29</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:09:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620371849.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620371849.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:09:42</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:09:44</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620384360.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620384360.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:11:10</td>
+																	<td class='step-details'>Unable to tap on Profile Icon</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:11:12</td>
+																	<td class='step-details'><a href='.\Failed_Screenshots\/PP_54_1605620472316.jpg' data-featherlight='image'><img class='report-img' src='.\Failed_Screenshots\/PP_54_1605620472316.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='7f4e4ce5-7404-41cf-ae55-70f1693bd7d6'>
+											<div class='test-head'>
+												<span class='test-name'>Test-8: TC QP59_To verify application should process the payment when user enters valid email format </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:11:50</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:12:22</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+839ms</span>
+												</div>
+												<div class='test-desc'>QP59_To verify application should process the payment when user enters valid email format</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:20</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:22</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620542920.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620542920.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:25</td>
+																	<td class='step-details'>Tapped on Quick Pay button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:26</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620546628.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620546628.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:27</td>
+																	<td class='step-details'>Able to see quick pay screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:29</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620549153.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620549153.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:31</td>
+																	<td class='step-details'>Selected Auto from Policy Type dropdown</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:33</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620553198.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620553198.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:35</td>
+																	<td class='step-details'>User able to enter policy number</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:37</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620557500.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620557500.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:39</td>
+																	<td class='step-details'>User able to enter zipcode</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620561224.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620561224.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:42</td>
+																	<td class='step-details'>Able to tap on paybill button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:44</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620564356.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620564356.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:47</td>
+																	<td class='step-details'>Select valid payment amount from the dropdown</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620569364.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620569364.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:53</td>
+																	<td class='step-details'>Select Credit/Debit Card payment method from the dropdown</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620575438.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620575438.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:57</td>
+																	<td class='step-details'>Able to tap on continue payment button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:12:58</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620578550.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620578550.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:29</td>
+																	<td class='step-details'>User is in credit debit billing screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620611486.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620611486.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:39</td>
+																	<td class='step-details'>User able to enter all the required values for credit debit billing information</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:40</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620620905.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620620905.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:43</td>
+																	<td class='step-details'>Able to tap continue button from credit debit billing information screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:44</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620624311.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620624311.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:44</td>
+																	<td class='step-details'>Able to navigate to jpmc screen after provided required details</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:13:46</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620626100.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620626100.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:14:21</td>
+																	<td class='step-details'>User unable to enter all the required values for jpmc screen</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:14:22</td>
+																	<td class='step-details'><a href='.\Failed_Screenshots\/PP_54_1605620662796.jpg' data-featherlight='image'><img class='report-img' src='.\Failed_Screenshots\/PP_54_1605620662796.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='b72efdd5-26d3-4c2c-8ccd-2b7e28ac3121'>
+											<div class='test-head'>
+												<span class='test-name'>Test-9: TC RLC47_To verify user should successfully recover the password </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:14:58</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:15:30</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+327ms</span>
+												</div>
+												<div class='test-desc'>RLC47_To verify user should successfully recover the password</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:28</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:30</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620730757.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620730757.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:32</td>
+																	<td class='step-details'>User in Login Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:34</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620734430.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620734430.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:36</td>
+																	<td class='step-details'>Clicked on Forgot UserName and Password Link</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:37</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620737787.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620737787.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:39</td>
+																	<td class='step-details'>User in Login Help Screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:40</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620740631.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620740631.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:42</td>
+																	<td class='step-details'>Clicked on Password button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620743669.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620743669.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:46</td>
+																	<td class='step-details'>Password Button is present</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:47</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620747161.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620747161.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:48</td>
+																	<td class='step-details'>Enter email place holder is available</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:50</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620750217.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620750217.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:51</td>
+																	<td class='step-details'>Entered email id in help screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:52</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620752958.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620752958.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:54</td>
+																	<td class='step-details'>Clicked on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:15:59</td>
+																	<td class='step-details'>Entered email id in input validation code and submit</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:16:01</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620761063.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620761063.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:16:02</td>
+																	<td class='step-details'>Validate password reset screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:16:07</td>
+																	<td class='step-details'>Validate password reset screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:16:09</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620769290.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620769290.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:16:12</td>
+																	<td class='step-details'>Validate password reset success message</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:16:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///PP_54_1605620773982.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///PP_54_1605620773982.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='11ffb8f7-ee14-49cb-951f-baf37f8e4381'>
+											<div class='test-head'>
+												<span class='test-name'>Test-10: TC Reg01_To verify user have enrolled a P&C in MetLife so that user can enter basic information and register independently for online access in Metlife application </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:16:50</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:17:23</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+465ms</span>
+												</div>
+												<div class='test-desc'>Reg01_To verify user have enrolled a P&C in MetLife so that user can enter basic information and register independently for online access in Metlife application</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:21</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:23</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///Reg01_1605620843331.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///Reg01_1605620843331.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:25</td>
+																	<td class='step-details'>Tap on Register Link</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:27</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///Reg01_1605620847972.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///Reg01_1605620847972.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:29</td>
+																	<td class='step-details'>User on Register Your Account screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:30</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///Reg01_1605620850409.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///Reg01_1605620850409.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:38</td>
+																	<td class='step-details'>All the fields are present</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:40</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///Reg01_1605620860424.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///Reg01_1605620860424.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:42</td>
+																	<td class='step-details'>Unchecked button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///Reg01_1605620863429.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///Reg01_1605620863429.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:49</td>
+																	<td class='step-details'>User able to select the date</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:50</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///Reg01_1605620870881.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///Reg01_1605620870881.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:51</td>
+																	<td class='step-details'>Continue button is enabled</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:17:52</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///Reg01_1605620872818.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///Reg01_1605620872818.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='cb810a87-f492-4a55-a0ab-6d7bb55b262f'>
+											<div class='test-head'>
+												<span class='test-name'>Test-11: TC RC_21f_To verify that user able to submit the claim on Review your claim report screen </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:18:28</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:19:00</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+479ms</span>
+												</div>
+												<div class='test-desc'>RC_21f_To verify that user able to submit the claim on Review your claim report screen</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:18:59</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:00</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620940859.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620940859.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:11</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620953345.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620953345.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:21</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:23</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620963075.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620963075.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:29</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:31</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620971779.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620971779.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:33</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:34</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620974526.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620974526.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:35</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:36</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620976978.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620976978.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:37</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:39</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620979215.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620979215.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:40</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:41</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620981936.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620981936.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:41</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:43</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620983029.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620983029.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:48</td>
+																	<td class='step-details'>Touch ID/Face ID/Finger Print enable Not Now button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:19:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605620989718.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605620989718.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:21:01</td>
+																	<td class='step-details'>Auto policy dashboard screen is not displayed</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:21:03</td>
+																	<td class='step-details'><a href='.//Failed_Screenshots///RC_12b_1605621063887.jpg' data-featherlight='image'><img class='report-img' src='.//Failed_Screenshots///RC_12b_1605621063887.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='7b40670b-39ed-4dce-a2ed-4330555577b9'>
+											<div class='test-head'>
+												<span class='test-name'>Test-12: TC TAM_01_To verify user able to access claims and absence information from the dashboard </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:21:40</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:22:13</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+915ms</span>
+												</div>
+												<div class='test-desc'>TAM_01_To verify user able to access claims and absence information from the dashboard</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:11</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:13</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621133527.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621133527.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:24</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:25</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621145805.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621145805.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:34</td>
+																	<td class='step-details'>User logged in to metlife application</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:35</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621155778.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621155778.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:42</td>
+																	<td class='step-details'>Email Selected for OTP</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:44</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621164273.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621164273.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:45</td>
+																	<td class='step-details'>Send Validation Code Button clicked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:47</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621167025.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621167025.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:48</td>
+																	<td class='step-details'>OTP is entered successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621169227.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621169227.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:50</td>
+																	<td class='step-details'>Able to validate remember me check box is unchecked</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:51</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621171651.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621171651.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:53</td>
+																	<td class='step-details'>Tap on continue button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621175103.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621175103.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:55</td>
+																	<td class='step-details'>User entered OTP and navigating to dashboard screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:22:55</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621175915.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621175915.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:43</td>
+																	<td class='step-details'>Selected TAM from policy selection screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:45</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621225104.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621225104.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:47</td>
+																	<td class='step-details'>User validates TAM details screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:49</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621229312.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621229312.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:51</td>
+																	<td class='step-details'>User clicked on Absence and Claims Button</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:52</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621232956.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621232956.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:57</td>
+																	<td class='step-details'>User validates absences and claims page</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:23:59</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621239482.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621239482.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:24:01</td>
+																	<td class='step-details'>Navigated back to dashboard from absences and claims screen</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:24:03</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621243457.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621243457.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:24:05</td>
+																	<td class='step-details'>Tapped on direct deposit option</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:24:06</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621246197.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621246197.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:24:08</td>
+																	<td class='step-details'>Direct Deposit screen header displayed</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:24:09</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621249960.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621249960.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='2da7fa0b-279e-4d3c-a5ae-4f6eba84a94b'>
+											<div class='test-head'>
+												<span class='test-name'>Test-13: TC VPB_33_To verify user can pay Auto policy bill using eCheck option </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:24:46</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:25:19</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 32s+679ms</span>
+												</div>
+												<div class='test-desc'>VPB_33_To verify user can pay Auto policy bill using eCheck option</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:25:17</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:25:19</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621319432.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621319432.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:25:30</td>
+																	<td class='step-details'>Changed to QA_PROD Env</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:25:32</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621332208.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621332208.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:27:02</td>
+																	<td class='step-details'>Unable to tap on Combo Policy</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:27:18</td>
+																	<td class='step-details'><a href='.\Failed_Screenshots\/RC_12b_1605621438504.jpg' data-featherlight='image'><img class='report-img' src='.\Failed_Screenshots\/RC_12b_1605621438504.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='0ebc9391-128e-4ef9-a707-a3527c941263'>
+											<div class='test-head'>
+												<span class='test-name'>Test-14: TC 7.3.2.2.As a guest user, I should be able tap the provider name from the provider list for the detailed view </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2020-11-17 19:27:55</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2020-11-17 19:28:30</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 35s+256ms</span>
+												</div>
+												<div class='test-desc'>7.3.2.2.As a guest user, I should be able tap the provider name from the provider list for the detailed view</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:28:26</td>
+																	<td class='step-details'>App launched in : iPhone-11</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>19:28:30</td>
+																	<td class='step-details'><a href='.//Passed_Screenshots///RC_12b_1605621510562.jpg' data-featherlight='image'><img class='report-img' src='.//Passed_Screenshots///RC_12b_1605621510562.jpg' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:29:01</td>
+																	<td class='step-details'>Not in login screen</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>19:29:04</td>
+																	<td class='step-details'><a href='.\Failed_Screenshots\/RC_12b_1605621544109.jpg' data-featherlight='image'><img class='report-img' src='.\Failed_Screenshots\/RC_12b_1605621544109.jpg' /></a></td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id='test-details-wrapper' class='col _addedCell2'>
+					<div class='contents'>
+						<div class='card-panel details-view'>
+							<h5 class='details-name'></h5>
+							<div class='step-filters right'>
+								<span class='btn-floating btn-small waves-effect waves-light blue' status='info' alt='info' title='info'><i class='mdi-action-info-outline'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light green' status='pass' alt='pass' title='pass'><i class='mdi-action-check-circle'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red' status='fail' alt='fail' title='fail'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red darken-4' status='fatal' alt='fatal' title='fatal'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red lighten-2' status='error' alt='error' title='error'><i class='mdi-alert-error'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light orange' alt='warning' status='warning' title='warning'><i class='mdi-alert-warning'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light cyan' status='skip' alt='skip' title='skip'><i class='mdi-content-redo'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light grey darken-2' status='clear-step-filter' alt='Clear filters' title='Clear filters'><i class='mdi-content-clear'></i></span>
+							</div>
+							<div class='details-container'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /tests -->
+			
+			<!-- categories -->
+			<!-- /categories -->
+			
+			<!-- exceptions -->
+			<!-- /exceptions -->
+			
+			<!-- testrunner logs -->
+			<!-- /testrunner logs -->
+			
+		</div>
+		<!-- /container -->
+		
+		<!-- test dashboard counts setting -->
+		<div id='test-count-setting' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Configure Tests Count Setting</h5> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodes' class='with-gap'> 
+				<label for='parentWithoutNodes'>Parent Tests Only (Does not include child nodes in counts)</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodesAndNodes' class='with-gap'> 
+				<label for='parentWithoutNodesAndNodes'>Parent Tests Without Child Tests + Child Tests</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='childNodes' class='with-gap'> 
+				<label for='childNodes'>Child Tests Only</label> 
+			</div> 
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /test dashboard counts setting -->
+		
+		<!-- filter for step status -->
+		<div id='step-status-filter' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Select status</h5> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-pass'> 
+				<label for='step-dashboard-filter-pass'>Pass</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fail'> 
+				<label for='step-dashboard-filter-fail'>Fail</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fatal'> 
+				<label for='step-dashboard-filter-fatal'>Fatal</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-error'> 
+				<label for='step-dashboard-filter-error'>Error</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-warning'> 
+				<label for='step-dashboard-filter-warning'>Warning</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-skip'> 
+				<label for='step-dashboard-filter-skip'>Skipped</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-info'> 
+				<label for='step-dashboard-filter-info'>Info</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-unknown'> 
+				<label for='step-dashboard-filter-unknown'>Unknown</label> 
+			</div>
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /filter for step status -->
+		
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.js' type='text/javascript'></script>
+
+		<script>$(document).ready(function() { $('.logo span').html('ExtentReports'); });</script>
+		<script>
+				
+            
+        $(document).ready(function() {
+
+        });
+      
+        
+		</script>
+	</body>
+</html>
